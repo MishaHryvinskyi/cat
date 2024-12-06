@@ -1,7 +1,16 @@
-function createMarkup (data) {
-    return data.map(({ url, width, id }) => `
-        <li><img src="${url}" alt="${id}" width="${width}"></li>`
+function createMarkupOptions (data) {
+    return data.map(({ id, name }) => `
+    <option value="${id}">${name}</option>
+        `
     ).join('');
 }
 
-export { createMarkup }
+function createMarkupCard({ url, id, breeds }) {
+    return `
+    <div class="card">
+        <img src="${url}" alt="${id}" width="400" />
+        <p class="description">${breeds[0].description}</p>
+    </div>`
+}
+
+export { createMarkupOptions, createMarkupCard }
