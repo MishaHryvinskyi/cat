@@ -13,4 +13,9 @@ function createMarkupCard({ url, id, breeds }) {
     </div>`
 }
 
-export { createMarkupOptions, createMarkupCard }
+function onError() {
+    const messege = `<p class="error">Oops! Something went wrong! Try reloading the page!</p>`
+    return containerEl.insertAdjacentHTML('beforeend', messege)
+}
+
+export { createMarkupOptions, createMarkupCard, onError }

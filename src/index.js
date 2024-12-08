@@ -1,5 +1,5 @@
 import { fetchBreeds, fetchCatByBreed } from "./API/api";
-import { createMarkupOptions, createMarkupCard } from "./API/JS/markup";
+import { createMarkupOptions, createMarkupCard, onError } from "./API/JS/markup";
 
 const selectEl = document.querySelector('.breed-select');
 const containerEl = document.querySelector('.cat-info');
@@ -14,11 +14,6 @@ function onOptClick(e) {
         containerEl.innerHTML = createMarkupCard(data[0])
     }
     ).catch(onError)
-}
-
-function onError() {
-    const messege = `<p class="error">Oops! Something went wrong! Try reloading the page!</p>`
-    return containerEl.insertAdjacentHTML('beforeend', messege)
 }
 
 fetchBreeds()
